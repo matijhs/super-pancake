@@ -20,6 +20,5 @@
 <li> In the body of the function the given submitDate gets rolled by one hour while the turnaroundTime is decremented util it is zero.
 <li> In case the turnaroundTime is too large to fit the due date in one working day,
  the DAY_OF_WEEK field of the dueDate is incremented and the HOUR_OF_DAY is set to 9AM (which is our starting working hour).
-<li> 
 <li> If we run into a weekend day, the DAY_OF_WEEK field of the dueDate is incremented until the first weekday.
 </ul>
