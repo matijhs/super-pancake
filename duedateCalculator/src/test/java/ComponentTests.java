@@ -6,22 +6,24 @@ import java.util.Calendar;
 
 import static org.junit.Assert.*;
 
-
+/**
+ * Test class of helper component methods.
+ */
 public class ComponentTests {
 
     private Calendar submitTime;
+    private DueDateCalculator dueDateCalculator;
 
     @Before
     public void setUp() throws Exception {
         submitTime = Calendar.getInstance();
+        dueDateCalculator = new DueDateCalculator();
     }
 
     @Test
     public void isWeekendShouldReturnTrue() {
         //given
         submitTime.set(2017, Calendar.AUGUST, 26);   // a weekend date
-
-        DueDateCalculator dueDateCalculator = new DueDateCalculator();
 
         //when
         boolean result = dueDateCalculator.isWeekend(submitTime);
@@ -34,8 +36,6 @@ public class ComponentTests {
     public void isWeekendShouldReturnFalse() {
         //given
         submitTime.set(2017, Calendar.AUGUST, 21);   // a weekday
-
-        DueDateCalculator dueDateCalculator = new DueDateCalculator();
 
         //when
         boolean result = dueDateCalculator.isWeekend(submitTime);
@@ -62,9 +62,7 @@ public class ComponentTests {
         submitTime3.set(Calendar.MINUTE, 30);
 
         submitTime4.set(Calendar.HOUR_OF_DAY, 9);
-        submitTime4.set(Calendar.MINUTE, 0);
-
-        DueDateCalculator dueDateCalculator = new DueDateCalculator();
+        submitTime4.set(Calendar.MINUTE, 5);
 
         //when
         boolean result1 = dueDateCalculator.isWorkingHour(submitTime1);
@@ -98,8 +96,6 @@ public class ComponentTests {
 
         submitTime4.set(Calendar.HOUR_OF_DAY, 17);
         submitTime4.set(Calendar.MINUTE, 17);
-
-        DueDateCalculator dueDateCalculator = new DueDateCalculator();
 
         //when
         boolean result1 = dueDateCalculator.isWorkingHour(submitTime1);
